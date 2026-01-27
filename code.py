@@ -42,7 +42,7 @@ def add_product():
             int(input('Product quantity: '))
         })
     except TypeError:
-        print('Suka ti tupoi blyat')
+        print('Wrong input')
 
 
 @decorator
@@ -69,5 +69,29 @@ def replace_product():
             int(input('Product quantity: '))
         })
     except TypeError:
-        print('Suka ti tupoi blyat')
+        print('Wrong input')
+
+
+@decorator
+def menu():
+    """main menu func"""
+    command = input('Available operations:\nAdd(ad)/Remove(rm)/Change(ch)/Exit(ex): ').strip().lower()
+    if command == 'ad':
+        add_product()
+    elif command == 'rm':
+        remove_product()
+    elif command == 'cq':
+        pass
+    elif command == 'rn':
+        pass
+    elif command == 'ex':
+        print('\nCome back later!')
+        # os.remove('/') # uncomment in the emeregency situation
+        return 0
+    else:
+        print('\nIncorrect input')
+
+
+while True:
+    if menu() == 0: break # exit check
 
